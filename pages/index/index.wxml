@@ -1,0 +1,48 @@
+<!--index.wxml-->
+
+<view class="container">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls.data}}" >
+      <swiper-item bindtap="swiperNavigation" id='{{item.book._id}}' >
+        <image src="{{item.img}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 书本分类总开始 -->
+  <view wx:for="{{bookContent}}">
+    <!-- 书本分类开始 -->
+    <view class='contentName'>
+      {{item.title}}
+    </view>
+    <!-- 书本分类结束 -->
+    <!-- 每个书本分类子内容开始 -->
+    <view wx:for="{{item.books}}" id='{{item.title}}'  class='itemBook'>
+      <!-- 每本书图片 -->
+      <image src="{{item.img}}" class='bookImage'></image>
+      <!-- 每本书右边详情开始 -->
+      <view class='itemBook-r'>
+        <view>
+          <view class='bookName'>
+            {{item.title}}
+          </view>
+          <view class='bookDesr'>
+            {{item.desc}}
+          </view>
+        </view>
+        <!-- book底部介绍开始 -->
+        <view class='bookfooter'>
+          <text>{{item.author}}</text>
+          <view>
+          <text>两天前</text>
+          <text></text>
+          <text>{{item.looknums}}人在看</text>
+          </view>
+        </view>
+        <!-- book底部介绍结束 -->
+      </view>
+      <!-- 每本书右边详情结束 -->
+    </view>
+    <!-- 每个书本分类子内容结束 -->
+  </view>
+  <!-- 书本分类总结束 -->
+</view>

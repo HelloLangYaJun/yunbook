@@ -1,0 +1,61 @@
+/**index.wxss**/
+
+/* 轮播图 */
+
+.slide-image {
+  width: 710rpx;
+}
+
+/* 书本图片封面 */
+
+.bookImage {
+  width: 220rpx;
+  height: 300rpx;
+}
+
+/* 分类 */
+
+.contentName {
+  margin: 30rpx 0rpx;
+  border-left: 2px solid #333;
+  padding-left: 20rpx;
+}
+
+/* 每本书 */
+
+.itemBook {
+  margin-bottom: 30rpx;
+  display: flex;
+}
+
+.itemBook-r {
+  width: 450rpx;
+  margin-left: 10rpx;
+  font-size: 12px;
+  display: flex;
+  color: #555;
+  flex-direction: column;
+  justify-content: space-between
+}
+
+/* 书名 */
+
+.bookName {
+  color: black;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 书本介绍 */
+
+.bookDesr {
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.bookfooter{
+ display: flex;
+ justify-content: space-between
+}

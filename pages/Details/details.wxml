@@ -1,0 +1,24 @@
+<!--pages/Details/details.wxml-->
+<view class='container'>
+  <!-- 头部分开始 -->
+  <view class='top'>
+    <!-- 头部左边图片开始 -->
+    <view class='top-l'>
+      <image src="{{book.data.img}}"></image>
+    </view>
+    <!-- 头部左边图片结束 -->
+    <!-- 头部右边介绍开始 -->
+    <view class='top-r'>
+    </view>
+    <!-- 头部右边介绍结束 -->
+  </view>
+  <!-- 头部分开始 -->
+  <!-- 中间部分开始 -->
+  <view class='middle'>
+  </view>
+  <!-- 中间部分开始 -->
+  <!-- 底部部分开始 -->
+  <view class='footer'>
+  </view>
+  <!-- 底部部分开始 -->
+</view>
