@@ -1,4 +1,7 @@
 <!--pages/Details/details.wxml-->
+<view wx:if='{{isLoading}}' class='loading'>
+  <image src='../../static/svg/loading.svg'></image>
+</view>
 <view class='container'>
   <!-- 头部分开始 -->
   <view class='top'>
@@ -9,16 +12,55 @@
     <!-- 头部左边图片结束 -->
     <!-- 头部右边介绍开始 -->
     <view class='top-r'>
+      <text class='bookName'>{{book.data.title}}</text>
+      <text class='author'>作者：{{book.data.author}}</text>
+      <text class='looknums'>{{book.data.looknums}}人在看</text>
+      <text class='startsnums'>{{book.data.startsnums}}喜欢</text>
     </view>
     <!-- 头部右边介绍结束 -->
+  </view>
+  <view class='btn'>
+    <button>已收藏</button>
+    <button>分享好友</button>
   </view>
   <!-- 头部分开始 -->
   <!-- 中间部分开始 -->
   <view class='middle'>
+    <!-- 简介 -->
+    <view class='abstract'>
+      <text class='bold16'>简介</text>
+    </view>
+    <!-- 简介 -->
+    <!-- 书本详情内容 -->
+    <view class='desr'>
+      <text class='slink12'>{{book.data.desc}}</text>
+    </view>
+    <!-- 目录 -->
+    <view class='dir'>
+      <view>
+        <text class='bold14' bindtap='opendir'>查看目录</text>
+        <text>共{{dir.data.length}}章</text>
+      </view>
+      <text>更新于{{book.data.updateTime}}</text>
+    </view>
+    <!-- 目录 -->
+    <!-- 书本详情内容 -->
   </view>
   <!-- 中间部分开始 -->
   <!-- 底部部分开始 -->
-  <view class='footer'>
+  <view class='footer bold14'>
+    <button>
+      阅读该书籍
+    </button>
+  </view>
+  <!-- 遮罩 -->
+  <view class='zhezhao' wx:if='{{isDir}}' bindtap='closedir'>
+  </view>
+  <view class='catalog' wx:if='{{isDir}}' >
+    <text class='slink14 catalog-name'>{{book.data.title}}</text>
+    <view wx:for="{{dir.data}}" class='item'>
+       <text class='dotted'></text><text class='onclick'  bindtap='nvtoBpage' id='{{item._id}}'>{{item.title}}</text>
+    </view>
   </view>
   <!-- 底部部分开始 -->
 </view>

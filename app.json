@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/Details/details"
+    "pages/Details/details",
+    "pages/bookpage/bpage"
   ],
   "window": {
     "backgroundTextStyle": "light",

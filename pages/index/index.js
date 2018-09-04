@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-import {fetch} from '../../utils/util.js'
+import { fetch, transformtime} from '../../utils/util.js'
 const app = getApp()
 Page({
   data: {
@@ -11,27 +11,35 @@ Page({
     indicatorDots: true,
     autoplay: false,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    isLoading:true
   },
   //事件处理函数
   onLoad: function() {
+
     this.getData('/swiper')
     this.getContent('/category/books')
   },
   getData(url) {
     fetch.get(url).then((res) => {
-      console.log(res)
       this.setData({
+        isLoading:false,
         imgUrls: res
       })
     })
   },
   getContent(url) {
+    // 更改时间为某某天前
     fetch.get(url).then((res) => {
+      res.data.forEach((item) => {
+        item.books.forEach((item2) => {
+          item2.updateTime = transformtime(item2.updateTime)
+        })
+      })
       this.setData({
         bookContent: res.data
       })
-      console.log(res)
+      console.log(this.data.bookContent)
     })
   },
 
@@ -42,5 +50,8 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+  },
+  getTime() {
+
   }
 })

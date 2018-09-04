@@ -1,5 +1,7 @@
 <!--index.wxml-->
-
+<view wx:if='{{isLoading}}' class='loading'>
+   <image src='../../static/svg/loading.svg'></image>
+</view>
 <view class="container">
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls.data}}" >
@@ -9,14 +11,14 @@
     </block>
   </swiper>
   <!-- 书本分类总开始 -->
-  <view wx:for="{{bookContent}}">
+  <view wx:for="{{bookContent}}" wx:for-item="itemName">
     <!-- 书本分类开始 -->
     <view class='contentName'>
-      {{item.title}}
+      {{itemName.title}}
     </view>
     <!-- 书本分类结束 -->
     <!-- 每个书本分类子内容开始 -->
-    <view wx:for="{{item.books}}" id='{{item.title}}'  class='itemBook'>
+    <view wx:for="{{itemName.books}}" id='{{item.title}}'  class='itemBook'>
       <!-- 每本书图片 -->
       <image src="{{item.img}}" class='bookImage'></image>
       <!-- 每本书右边详情开始 -->
@@ -32,9 +34,9 @@
         <!-- book底部介绍开始 -->
         <view class='bookfooter'>
           <text>{{item.author}}</text>
-          <view>
-          <text>两天前</text>
-          <text></text>
+          <view class='footer-r'>
+          <text>{{item.updateTime}}</text>
+          <text>{{itemName.title}}</text>
           <text>{{item.looknums}}人在看</text>
           </view>
         </view>

@@ -1,0 +1,2 @@
+<!--pages/bookpage/bpage.wxml-->
+<text>{{content.data.article.content}}</text>

@@ -5,7 +5,19 @@
 .slide-image {
   width: 710rpx;
 }
-
+.loading{
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50rpx;
+  margin-left: -50rpx;
+}
+.loading image{
+  width: 100rpx;
+  height: 100rpx;
+}
 /* 书本图片封面 */
 
 .bookImage {
@@ -58,4 +70,7 @@
 .bookfooter{
  display: flex;
  justify-content: space-between
+}
+.footer-r text{
+  margin: 0 4rpx
 }
