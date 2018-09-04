@@ -44,6 +44,7 @@ Page({
   },
 
   swiperNavigation: function(event) {
+    console.dir(this.data.bookContent)
     wx.navigateTo({
       url: `/pages/Details/details?id=${event.currentTarget.id}`,
       success: function(res) {},

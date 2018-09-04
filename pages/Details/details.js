@@ -1,4 +1,5 @@
 import { fetch,transformtime } from '../../utils/util.js'
+const app = getApp()
 Page({
   data: {
   queryid:1,
@@ -6,12 +7,15 @@ Page({
   dir:{},
   isLoading: true,
   isDir:false,
+  // 最新章节内容
+  newcontent:{}
   },
   onLoad: function (options) {
     this.setData({
       queryid:options.id
     })
    this.getData()
+   
   },
   onShareAppMessage: function () {
   
@@ -20,7 +24,7 @@ Page({
      fetch.get(`/book/${this.data.queryid}`).then((res) => {
        res.data.updateTime= transformtime(res.data.updateTime)
        this.setData({
-      isLoading:false,
+       isLoading:false,
        book:res
      })
     })
@@ -30,6 +34,7 @@ Page({
       this.setData({
         dir: res
       })
+      this.getnewcontent()
       console.log(res)
     })
   },
@@ -44,11 +49,51 @@ Page({
       isDir: false
     })
   },
+   // ----------获取最新章节内容--------
+   getnewcontent(){
+    let dirconten = this.data.dir.data
+    // console.log(dirconten)
+     wx.request({
+       url: `https://m.yaojunrong.com/article/${dirconten[dirconten.length - 1]._id}`,
+       header: {
+         'content-type': 'application/x-www-form-urlencoded'
+       },
+       success: (res) => {
+        
+         //将markdown内容转换为towxml数据
+         let data = app.towxml.toJson(res.data.data.article.content.slice(0, 250), 'markdown');
+         // 设置文档显示主题，默认'light'
+         data.theme = 'light';
+         data.child
+         //设置数据
+         this.setData({
+           newcontent: data
+         });
+       }
+     });
+    // ----------------
+    //  fetch.get(`/article/${dirconten[dirconten.length-1]._id}`).then((res) => {
+    //    console.log(res)
+    //    let data = app.towxml.toJson(res.data.article.content, 'markdown');
+    //    data.theme = 'dark';
+    //    console.log(data)
+    //    this.setData({
+    //      newcontent: data
+    //    }) 
+    //  })
+   },
   // ---------跳转到章节查看页面---------
   nvtoBpage(event){
-    console.log(event)
+    let dirconten = this.data.dir.data
+    let url=''
+    if (event.target.id=="one"){
+      url = `/pages/bookpage/bpage?id=${dirconten[0]._id}&&qureyid=${this.data.queryid}`
+    }
+    else{
+      url = `/pages/bookpage/bpage?id=${event.target.id}&&qureyid=${this.data.queryid}`
+    }
      wx.navigateTo({
-       url: `/pages/bookpage/bpage?id=${event.target.id}`,
+       url: url,
        success: function(res) {},
        fail: function(res) {},
        complete: function(res) {},

@@ -1,2 +1,27 @@
 <!--pages/bookpage/bpage.wxml-->
-<text>{{content.data.article.content}}</text>
+<import src="../../towxml/entry.wxml"/>
+<view wx:if='{{isLoading}}' class='loading'>
+  <image src='../../static/svg/loading.svg'></image>
+</view>
+<view wx:if='{{isLoading2}}' class=' loading loading2'>
+  <image src='../../static/svg/refresh2.svg'></image>
+</view>
+<!-- 支持markdown的依赖导入 -->
+<view class='main' bindtap='openflex'>
+<template is="entry" data="{{...article}}" />
+</view>
+<!-- 支持markdown的依赖导入 -->
+<!-- 目录 -->
+<view class='catalog' wx:if='{{isDir}}' >
+    <view wx:for="{{dir.data}}" class='item'>
+       <text class='dotted'></text>
+       <text class='onclick'  bindtap='nvtoBpage' id='{{item._id}}'>{{item.title}}</text>
+    </view>
+  </view>
+<!-- 目录 -->
+<view class='flexbutton'wx:if='{{isflexbutton}}' >
+<image src='../../static/svg/callback.svg'  bindtap='back'></image>
+<image src='../../static/svg/refresh.svg'bindtap="onShow"></image>
+<image src='../../static/svg/setting.svg' bindtap='getlight' ></image>
+<image src='../../static/svg/menu.svg' bindtap='opendir' ></image>
+</view>

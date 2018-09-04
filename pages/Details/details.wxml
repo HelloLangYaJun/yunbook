@@ -1,8 +1,9 @@
 <!--pages/Details/details.wxml-->
+<import src="../../towxml/entry.wxml"/>
 <view wx:if='{{isLoading}}' class='loading'>
   <image src='../../static/svg/loading.svg'></image>
 </view>
-<view class='container'>
+<view class='container' wx:if="{{!isLoading}}">
   <!-- 头部分开始 -->
   <view class='top'>
     <!-- 头部左边图片开始 -->
@@ -46,20 +47,37 @@
     <!-- 目录 -->
     <!-- 书本详情内容 -->
   </view>
+  <!-- 最新章节 -->
+  <view class='newcontent'>
+    <view>
+      <text class='bold14' bindtap='opendir'>最新章节</text>
+      <text class='slink12 '>{{dir.data[dir.data.length-1].title}}</text>
+    </view>
+    <!-- <view class='slink14'>
+      <text class='slink12'>{{newcontent}}</text>
+    </view> -->
+    <!-- 支持markdown的依赖导入 -->
+    <view class='main'>
+      <template is="entry" data="{{...newcontent}}" />
+    </view>
+    <!-- 支持markdown的依赖导入 -->
+  </view>
+  <!-- 最新章节 -->
   <!-- 中间部分开始 -->
   <!-- 底部部分开始 -->
   <view class='footer bold14'>
-    <button>
+    <button bindtap='nvtoBpage' id='one'>
       阅读该书籍
     </button>
   </view>
   <!-- 遮罩 -->
   <view class='zhezhao' wx:if='{{isDir}}' bindtap='closedir'>
   </view>
-  <view class='catalog' wx:if='{{isDir}}' >
+  <view class='catalog' wx:if='{{isDir}}'>
     <text class='slink14 catalog-name'>{{book.data.title}}</text>
     <view wx:for="{{dir.data}}" class='item'>
-       <text class='dotted'></text><text class='onclick'  bindtap='nvtoBpage' id='{{item._id}}'>{{item.title}}</text>
+      <text class='dotted'></text>
+      <text class='onclick' bindtap='nvtoBpage' id='{{item._id}}'>{{item.title}}</text>
     </view>
   </view>
   <!-- 底部部分开始 -->

@@ -1,5 +1,14 @@
 /* pages/Details/details.wxss */
+/**基础风格样式**/
+@import '/towxml/style/main.wxss';
 
+/**如果页面有动态主题切换，则需要将使用到的样式全部引入**/
+
+/**主题配色（浅色样式）**/
+@import '/towxml/style/theme/light.wxss';
+
+/**主题配色（深色样式）**/
+@import '/towxml/style/theme/dark.wxss';
 /* 初始化类库 */
 .bold14{
   font-weight: 700;
@@ -172,3 +181,8 @@
   
 }
 /* 目录 */
+/* 最新章节 */
+.newcontent text{
+  margin-right: 30rpx;
+}
+/* 最新章节 */

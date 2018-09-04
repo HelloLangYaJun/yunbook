@@ -1,1 +1,101 @@
 /* pages/bookpage/bpage.wxss */
+/**pages/index.wxss**/
+
+/**基础风格样式**/
+@import '/towxml/style/main.wxss';
+
+/**如果页面有动态主题切换，则需要将使用到的样式全部引入**/
+
+/**主题配色（浅色样式）**/
+@import '/towxml/style/theme/light.wxss';
+
+/**主题配色（深色样式）**/
+@import '/towxml/style/theme/dark.wxss';
+.loading{
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50rpx;
+  margin-left: -50rpx;
+}
+loading2{
+
+}
+.loading image{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+/* 目录 */
+.catalog{
+  position: fixed;
+  width: 500rpx;
+  height: 100%;
+  top: 0rpx;
+  z-index: 998;
+  overflow-y: scroll;
+  background-color: #fff;
+  animation: dirmove 0.5s infinite;
+  animation-iteration-count:1
+}
+@keyframes dirmove
+{
+from {left:-500rpx;}
+to {left:0rpx;}
+}
+
+.item{
+  display: block;
+  font-size: 14px;
+  line-height: 70rpx;
+  height: 50rpx;
+  padding-bottom: 20rpx;
+  color: #333;
+  margin-left: 50rpx;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+.dotted{
+  position: absolute;
+  top: 30rpx;
+  left: -30rpx;
+  display: block;
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+.onclick{
+  display: block;
+  height: 100%;
+  width: 100%;
+  
+}
+/* 目录 */
+/* 悬浮按钮 */
+.flexbutton{
+  position: fixed;
+  bottom:0;
+  height: 80rpx;
+  width: 100%;
+  box-shadow:0rpx -12rpx 10rpx #ccc;
+  background-color: #333;
+   animation: buttonmove 0.5s infinite;
+  animation-iteration-count:1
+}
+@keyframes buttonmove
+{
+from {bottom:-80rpx;}
+to {bottom:0rpx;}
+}
+.flexbutton image{
+  width: 25%;
+  height: 60rpx;
+  padding-bottom: 10rpx;
+}
+.active{
+  background-color: #999
+}
+/* 悬浮按钮 */

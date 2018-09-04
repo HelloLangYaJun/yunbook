@@ -6,8 +6,8 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarBackgroundColor": "#f9f9f9",
+    "navigationBarTitleText": "非学",
     "navigationBarTextStyle": "black"
   }
 }
