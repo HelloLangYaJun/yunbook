@@ -148,8 +148,6 @@ Page({
         light=0
       }
     }
-
-
     this.setData({
       screenlight:light,
     })
