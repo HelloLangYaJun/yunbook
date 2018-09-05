@@ -9,7 +9,7 @@ Page({
     ],
     bookContent: [],
     indicatorDots: true,
-    autoplay: false,
+    autoplay: true,
     interval: 5000,
     duration: 1000,
     isLoading:true
@@ -28,7 +28,7 @@ Page({
       })
     })
   },
-  getContent(url) {
+  getContent(url ) {
     // 更改时间为某某天前
     fetch.get(url).then((res) => {
       res.data.forEach((item) => {
@@ -45,6 +45,7 @@ Page({
 
   swiperNavigation: function(event) {
     console.dir(this.data.bookContent)
+    console.dir(event)
     wx.navigateTo({
       url: `/pages/Details/details?id=${event.currentTarget.id}`,
       success: function(res) {},

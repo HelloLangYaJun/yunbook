@@ -3,13 +3,13 @@
 <view wx:if='{{isLoading}}' class='loading'>
   <image src='../../static/svg/loading.svg'></image>
 </view>
-<view wx:if='{{isLoading2}}' class=' loading loading2'>
+<view wx:if='{{isLoading2}}' class=' loading loading2' >
   <image src='../../static/svg/refresh2.svg'></image>
 </view>
 <!-- 支持markdown的依赖导入 -->
-<view class='main' bindtap='openflex'>
+<scroll-view class='main' bindtap='openflex' style='height:{{windowHeight}}rpx;font-size:{{size}}rpx' scroll-y="true"  bindscroll="scroll" scroll-top='{{topNum}}'>
 <template is="entry" data="{{...article}}" />
-</view>
+</scroll-view>
 <!-- 支持markdown的依赖导入 -->
 <!-- 目录 -->
 <view class='catalog' wx:if='{{isDir}}' >
@@ -19,9 +19,25 @@
     </view>
   </view>
 <!-- 目录 -->
+<!-- 设置界面 -->
+<view class='setting' wx:if="{{isSetting}}">
+<view class='msg'>
+<image src='../../static/svg/downMsg.svg' bindtap='setlight' id="down"></image>
+<progress percent="{{screenlight*100}}" stroke-width="10" class='progress'/>
+<image src='../../static/svg/upMsg.svg' bindtap='setlight' id="up"></image>
+</view>
+<view class='size'>
+ <image src='../../static/svg/sizedown.svg' bindtap='setsize' id="down"></image>
+ <image src='../../static/svg/sizeup.svg' bindtap='setsize' id="up"></image>
+ </view>
+
+</view>
+<!-- 设置界面 -->
+<!-- 底部悬浮按钮 -->
 <view class='flexbutton'wx:if='{{isflexbutton}}' >
 <image src='../../static/svg/callback.svg'  bindtap='back'></image>
 <image src='../../static/svg/refresh.svg'bindtap="onShow"></image>
-<image src='../../static/svg/setting.svg' bindtap='getlight' ></image>
+<image src='../../static/svg/setting.svg' bindtap='getsetting' ></image>
 <image src='../../static/svg/menu.svg' bindtap='opendir' ></image>
 </view>
+<!-- 底部悬浮按钮 -->

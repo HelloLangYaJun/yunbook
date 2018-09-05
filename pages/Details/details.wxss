@@ -10,6 +10,11 @@
 /**主题配色（深色样式）**/
 @import '/towxml/style/theme/dark.wxss';
 /* 初始化类库 */
+::-webkit-scrollbar{
+width: 10rpx;
+height: 30rpx;
+color: #e9e9e9;
+}
 .bold14{
   font-weight: 700;
   color: black;
@@ -184,5 +189,8 @@
 /* 最新章节 */
 .newcontent text{
   margin-right: 30rpx;
+}
+.main{
+  font-size: 100rpx;
 }
 /* 最新章节 */
