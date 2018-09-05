@@ -148,8 +148,10 @@ Page({
         light=0
       }
     }
+
+
     this.setData({
-      screenlight:light
+      screenlight:light,
     })
     console.log(light)
     wx.setScreenBrightness({
