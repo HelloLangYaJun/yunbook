@@ -22,7 +22,7 @@
   </view>
   <view class='btn'>
     <button>已收藏</button>
-    <button>分享好友</button>
+    <button open-type="share">分享好友</button>
   </view>
   <!-- 头部分开始 -->
   <!-- 中间部分开始 -->

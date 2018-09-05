@@ -34,7 +34,6 @@ Page({
       this.setData({
         dir: res
       })
-      console.log(res)
     })
     this.getSystemInfo()
   },
@@ -97,6 +96,7 @@ Page({
     else{
       this.setData({
         isflexbutton: !this.data.isflexbutton,
+        isSetting:false
       })
     } 
   },
@@ -128,8 +128,6 @@ Page({
     var that=this
     wx.getScreenBrightness({
       success: function (res) {
-        console.log(res)
-        console.log(res.value)
         that.setData({
           screenlight:res.value
         })  
@@ -141,6 +139,9 @@ Page({
      let light=this.data.screenlight
     if (event.target.id == "up"){
       light+=0.1
+      if (light>=1){
+        light=1;
+      }
     }
     else{
       light -= 0.1
@@ -185,7 +186,7 @@ Page({
     }
   },
   scroll: function (e, res){
-    console.log('ok')
+    
   },
   onShareAppMessage: function () {
   }

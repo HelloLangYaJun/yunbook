@@ -39,13 +39,11 @@ Page({
       this.setData({
         bookContent: res.data
       })
-      console.log(this.data.bookContent)
+      
     })
   },
 
   swiperNavigation: function(event) {
-    console.dir(this.data.bookContent)
-    console.dir(event)
     wx.navigateTo({
       url: `/pages/Details/details?id=${event.currentTarget.id}`,
       success: function(res) {},

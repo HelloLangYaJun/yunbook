@@ -17,8 +17,11 @@ Page({
    this.getData()
    
   },
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+    return {
+      title: '非学小程序',
+      path: 'pages/index/index'
+    }
   },
   getData(){
      fetch.get(`/book/${this.data.queryid}`).then((res) => {
@@ -35,7 +38,6 @@ Page({
         dir: res
       })
       this.getnewcontent()
-      console.log(res)
     })
   },
   // ----------打开目录--------
