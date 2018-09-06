@@ -1,16 +1,22 @@
 const baseUrl='https://m.yaojunrong.com'
 const fetch={
-  get(url,data){
+  get(url, method = "GET", data = "", header = { 'content-type': 'application/json'}){
+    console.log(method)
     console.log(baseUrl + url)
     return new Promise((resolvd,reject)=>{
+      let token = wx.getStorageSync('token') 
+      if (token) {
+        header.token = token
+      }
       wx.request({
         url: baseUrl + url,
-        methods: 'GET',
+        method,
         data,
-        header: {
-          'content-type': 'application/json'
-        },
+        header,
         success(res) {
+          if (res.header['Token']) {
+            wx.setStorageSync('token', res.header['Token'])
+          }
           resolvd(res.data)
         },
         fail(err){
@@ -25,8 +31,8 @@ const transformtime=function(t){
   var updatetime = date.getTime();
   let time = new Date().getTime() - updatetime
   let arr = []
-  let str = 0;
-  let str2 = "天"
+  let str = 999;
+  let str2 = "刚刚"
   arr.push(Math.floor(time / (1000 * 3600 * 24 * 365)))
   arr.push(Math.floor(time / (1000 * 3600 * 24 * 30)))
   arr.push(Math.floor(time / (1000 * 3600 * 24)))
@@ -54,6 +60,10 @@ const transformtime=function(t){
       break
     }
   }
+  if(str==999){
+    return str2 
+  }
   return arr[str] + str2 + "前"
 }
 export { fetch, transformtime}
+

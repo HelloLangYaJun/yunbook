@@ -1,0 +1,37 @@
+<view class='container'>
+  <!-- 每个书本分类子内容开始 -->
+  <view wx:for="{{books}}" class='itemBook'>
+    <view class='itemBook' bindtap='swiperNavigation'>
+      <!-- 每本书图片 -->
+      <image src="{{item.book.img}}" class='bookImage'></image>
+      <!-- 每本书右边详情开始 -->
+      <view class='itemBook-r'>
+          <view class='bookName'>
+            {{item.book.title}}
+          </view>
+          <!-- 看了多少章 -->
+          <view class='bookNamehave'>
+            <text> 书籍</text><text>{{item.title.index+1}}</text><text>/{{item.title.total+1}}章节</text>
+          </view>
+             <!-- 看了多少章 -->
+             <!-- 进度条 -->
+          <view class='Progress'>
+             <progress percent='{{(item.title.index+1)/(item.title.total+1)*100}}' stroke-width="5"></progress><text>已看{{item.bai}}%</text>
+          </view>
+             <!-- 进度条 -->
+             <!-- 上次查看 -->
+             <view class='lastSaved'>
+             <view><text>上次查看：</text><text>{{item.title.title}}</text></view><text>{{item.updatedTime}}</text>
+             </view>
+              <!-- 上次查看 -->
+              <!-- 按钮 -->
+              <view class='btn'>
+              <button bindtap='goBookPage' id='{{item.title._id}}' data-post-id='{{item.title.bookId}}'> 继续阅读</button><button bindtap='goDetail' id='{{item.title.bookId}}'>查看文档</button>
+              </view>
+              <!-- 按钮 -->
+      </view>
+      <!-- 每本书右边详情结束 -->
+    </view>
+  </view>
+  <!-- 每个书本分类子内容结束 -->
+</view>

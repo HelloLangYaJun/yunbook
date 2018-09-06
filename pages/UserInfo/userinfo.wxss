@@ -1,0 +1,54 @@
+/* pages/UserInfo/userinfo.wxss */
+.userinfo{
+  background-color: #1f8ffe;
+  width: 100%;
+  height: 300rpx;
+}
+.top{
+  height:158rpx; 
+  display: flex;
+  box-shadow: 0 0 0 0.5px rgba(173, 183, 185, 0.3);
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin:0 30rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname{
+  display: block;
+   width: 550rpx;
+  height: 80rpx;
+  font-size: 16px;
+   margin-left: 20rpx;
+   color: #fff;
+}
+.jieshao{
+  font-size: 14px;
+  color: #fff;
+}
+.bottom{
+  display: flex;
+  color: #fff;
+  justify-content: space-between
+}
+.bottom view{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.Indeximage{
+  margin-top: 100rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.login{
+    width: 128rpx;
+  height: 128rpx;
+  margin:0 30rpx;
+  font-size: 12px;
+  border-radius: 50%;
+}

@@ -2,7 +2,7 @@
 <view wx:if='{{isLoading}}' class='loading'>
   <image src='../../static/svg/loading.svg'></image>
 </view>
-<view class="container">
+<view class="container" wx:if='{{!isLoading}}'>
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls.data}}">
       <swiper-item bindtap="swiperNavigation" id='{{item.book._id}}'>
@@ -15,6 +15,7 @@
     <!-- 书本分类开始 -->
     <view class='contentName'>
       {{itemName.title}}
+       <text class='more' bindtap='more' id='{{itemName._id}}' data-post-id='{{itemName.title}}'>更多···</text>
     </view>
     <!-- 书本分类结束 -->
     <!-- 每个书本分类子内容开始 -->
@@ -27,6 +28,7 @@
         <view>
           <view class='bookName'>
             {{item.title}}
+           
           </view>
           <view class='bookDesr'>
             {{item.desc}}
@@ -49,4 +51,9 @@
     <!-- 每个书本分类子内容结束 -->
   </view>
   <!-- 书本分类总结束 -->
+  <!-- 我是有底线的 -->
+  <view class='baseLine' wx:if="{{isDone}}">
+  <text>我是有底线的</text>
+  </view>
+  <!-- 我是有底线的 -->
 </view>

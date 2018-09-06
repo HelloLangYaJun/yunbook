@@ -1,0 +1,49 @@
+/* pages/Enshire/enshire.wxss */
+page{
+   width: 670rpx;
+  height: 1206rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+   background-color: #f9f9f9;
+}
+.container{
+  padding: 20rpx 40rpx;
+  width: 670rpx;
+  display: flex;
+  flex-wrap: wrap;
+ 
+}
+.item{
+  display: flex;
+  flex-direction: column;
+   width: 50%;
+   height: 300rpx;
+   align-items: center;
+   margin: 30rpx 0rpx;
+}
+.item image{
+  width: 200rpx;
+  height: 250rpx;
+   box-shadow:0rpx 0rpx 10rpx #555;
+}
+.item text{
+  font-size: 12px;
+
+}
+/* 我是有底线的 */
+.baseLine{
+  height: 40rpx;
+  width: 750rpx;
+  background-color: #e9e9e9;
+  display: flex;
+  bottom: 0rpx;
+}
+.baseLine text{
+  position: fixed;
+  width: 100%;
+  font-size: 12px;
+  color: #555;
+  text-align: center;
+
+}

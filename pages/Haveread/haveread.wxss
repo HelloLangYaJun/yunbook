@@ -1,0 +1,78 @@
+/* pages/Haveread/haveread.wxss */
+
+/* pages/Allbook/allbook.wxss */
+
+/* 书本图片封面 */
+
+.container {
+  padding: 30rpx 20rpx;
+}
+
+.bookImage {
+  width: 220rpx;
+  height: 300rpx;
+  box-shadow: 0rpx 0rpx 10rpx #888;
+}
+
+/* 分类 */
+
+.more {
+  font-size: 12px;
+  color: #555;
+  margin-right: 50rpx;
+}
+
+/* 每本书 */
+
+.itemBook {
+  margin-bottom: 30rpx;
+  display: flex;
+}
+
+.itemBook-r {
+  width: 450rpx;
+  margin-left: 10rpx;
+  font-size: 12px;
+  display: flex;
+  color: #555;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 书名 */
+
+.bookName {
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 进度条 */
+
+.Progress {
+  height: 40rpx;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+progress {
+  width: 75%;
+}
+
+/* 按钮 */
+
+.btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn button {
+  width: 194rpx;
+  height: 60rpx;
+  font-size: 12px;
+}
+.lastSaved{
+  display: flex;
+  justify-content: space-between
+}

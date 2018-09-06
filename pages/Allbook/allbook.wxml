@@ -1,0 +1,36 @@
+<view class='container'>
+
+<view class='contentName'>
+  {{title}}
+</view>
+<view wx:for="{{books}}" id='{{item.title}}' class='itemBook'>
+  <view class='itemBook' bindtap='swiperNavigation' id='{{item._id}}'>
+    <!-- 每本书图片 -->
+    <image src="{{item.img}}" class='bookImage'></image>
+    <!-- 每本书右边详情开始 -->
+    <view class='itemBook-r'>
+      <view>
+        <view class='bookName'>
+          {{item.title}}
+
+        </view>
+        <view class='bookDesr'>
+          {{item.desc}}
+        </view>
+      </view>
+      <!-- book底部介绍开始 -->
+      <view class='bookfooter'>
+        <text>{{item.author}}</text>
+        <view class='footer-r'>
+          <text>{{item.updateTime}}</text>
+          <text>{{itemName.title}}</text>
+          <text>{{item.looknums}}人在看</text>
+        </view>
+      </view>
+      <!-- book底部介绍结束 -->
+    </view>
+    <!-- 每本书右边详情结束 -->
+  </view>
+</view>
+<!-- 每个书本分类子内容结束 -->
+</view>

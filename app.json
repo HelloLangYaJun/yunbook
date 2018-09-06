@@ -2,12 +2,42 @@
   "pages": [
     "pages/index/index",
     "pages/Details/details",
-    "pages/bookpage/bpage"
+    "pages/bookpage/bpage",
+    "pages/Allbook/allbook",
+    "pages/Haveread/haveread",
+    "pages/UserInfo/userinfo",
+    "pages/Enshire/enshire"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#f9f9f9",
     "navigationBarTitleText": "非学",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#3cc51f",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/png/setting2.png",
+        "selectedIconPath": "static/png/setting.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/Haveread/haveread",
+        "iconPath": "static/png/readBook2.png",
+        "selectedIconPath": "static/png/readBook.png",
+        "text": "阅读记录"
+      },
+      {
+        "pagePath": "pages/UserInfo/userinfo",
+        "iconPath": "static/png/personInfo2.png",
+        "selectedIconPath": "static/png/personInfo.png",
+        "text": "个人中心"
+      }
+    ]
   }
 }

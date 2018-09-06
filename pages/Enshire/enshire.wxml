@@ -1,0 +1,12 @@
+
+<view class='container'>
+  <view class='item' wx:for='{{book}}'>
+    <image src='{{item.book.img}}' bindtap='openbook' id='{{item.book._id}}'></image>
+    <text> {{item.book.title}}</text>
+  </view>
+</view>
+   <!-- 我是有底线的 -->
+  <view class='baseLine' >
+  <text>已经全部加载</text>
+  </view>
+  <!-- 我是有底线的 -->
