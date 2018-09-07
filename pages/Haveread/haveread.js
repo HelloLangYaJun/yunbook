@@ -19,7 +19,7 @@ Page({
       this.setData({
         books: res.data
       })
-      console.log(this.data.books)
+  
     })
 
   },

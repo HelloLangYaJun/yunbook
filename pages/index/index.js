@@ -30,7 +30,6 @@ Page({
         this.setData({
           isLoading: false,
           imgUrls: res,
-         
         })
         resolvd()
       })
@@ -48,7 +47,6 @@ Page({
           bookContent: res.data,
           idDone: false,
         })
-        console.log(res.data)
       resolvd()
       })
     })

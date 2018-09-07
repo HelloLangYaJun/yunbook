@@ -4,6 +4,20 @@
 
 .slide-image {
   width: 710rpx;
+  height: 150px;
+}
+.imagedetail{
+  position: fixed;
+  opacity: 0.5;
+  color: #fff;
+  background-color: #000;
+  font-size: 16px;
+  line-height: 50rpx;
+  text-indent: 0.5em;
+  bottom: 0rpx;
+  height: 50rpx;
+  width: 100%;
+  z-index: 999;
 }
 .loading{
   width: 100rpx;

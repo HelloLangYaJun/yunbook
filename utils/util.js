@@ -37,6 +37,7 @@ const transformtime=function(t){
   arr.push(Math.floor(time / (1000 * 3600 * 24 * 30)))
   arr.push(Math.floor(time / (1000 * 3600 * 24)))
   arr.push(Math.floor(time / (1000 * 3600)))
+  arr.push(Math.floor(time / (1000 * 60)))
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > 0) {
       str = i;
@@ -52,6 +53,9 @@ const transformtime=function(t){
           break
         case 3:
           str2 = "小时"
+          break
+        case 4:
+          str2 = "分钟"
           break
         default:
           str2 = "刚刚"

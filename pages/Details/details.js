@@ -15,7 +15,7 @@ Page({
     // 最新章节内容
     newcontent: {},
     // 收藏状态
-    isEnshrine:false,
+    isEnshrine: false,
   },
   onLoad: function(options) {
     //------ 获取个人信息凭证---------
@@ -35,23 +35,21 @@ Page({
       path: 'pages/index/index'
     }
   },
-  getEnshrine(){
+  getEnshrine() {
     fetch.get(`/collection?pn=1&size=10`).then((res) => {
       console.log(res)
       res.data.forEach(item => {
-        // fetch.get(`/book/${item._id}`).then((res)=>{
-        //   console.log(res)
-        // })
-        if(item.book._id==this.data.queryid){
+        if (item.book._id == this.data.queryid) {
           this.setData({
             isEnshrine: true,
           })
-        }
+        }   
       })
+
     })
   },
   // 获取书籍详情
-  getData(){
+  getData() {
     fetch.get(`/book/${this.data.queryid}`).then((res) => {
       res.data.updateTime = transformtime(res.data.updateTime)
       this.setData({
@@ -133,9 +131,22 @@ Page({
   },
   // -----------------------收藏----------------------------
   enshrine() {
-    fetch.get(`/collection`, "POST", {bookId:this.data.queryid}).then((res) => {
-      console.log(res)
-      this.getEnshrine()
-    })
+    if (this.data.isEnshrine) {
+      fetch.get(`/collection/delete`, "POST", {
+        arr: [this.data.queryid]
+      }).then((res) => {
+        console.log(res)
+        this.setData({
+          isEnshrine: false,
+        })
+      })
+    } else {
+      fetch.get(`/collection`, "POST", {
+        bookId: this.data.queryid
+      }).then((res) => {
+        console.log(res)
+        this.getEnshrine()
+      })
+    }
   }
 })

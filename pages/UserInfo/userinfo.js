@@ -1,15 +1,21 @@
+
 const app = getApp()
+
+import {
+  fetch
+} from '../../utils/util.js'
 Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    book:[],
+    num:'未登录'
   },
 
-  onLoad: function (options) {
-  
- // ----------自动获取用户信息-------------
+  onLoad: function(options) {
+    this.getEnshrine()
+    // ----------自动获取用户信息-------------
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -41,15 +47,14 @@ Page({
   globalData: {
     userInfo: null
   },
-  getUserInfo: function (e) {
-    console.log(e)
+  getUserInfo: function(e) {
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
   },
-  enshire(){
+  enshire() {
     wx.navigateTo({
       url: '/pages/Enshire/enshire',
       success: function(res) {},
@@ -57,7 +62,15 @@ Page({
       complete: function(res) {},
     })
   },
-  onShareAppMessage: function () {
-  
+  getEnshrine() {
+    fetch.get(`/collection?pn=1&size=10`).then((res) => {
+      this.setData({
+        // book: res.data
+        num:res.data.length
+      })
+    })
+  },
+  onShareAppMessage: function() {
+
   }
 })

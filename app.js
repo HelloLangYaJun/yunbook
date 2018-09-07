@@ -21,7 +21,6 @@ App({
               wx.setStorageSync('token', res.header.Token )
             }
           })
-
         } else {
           console.log('获取用户登录态失败！' + res.errMsg)
         }

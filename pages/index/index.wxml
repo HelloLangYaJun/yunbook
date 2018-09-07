@@ -3,15 +3,16 @@
   <image src='../../static/svg/loading.svg'></image>
 </view>
 <view class="container" wx:if='{{!isLoading}}'>
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls.data}}">
+  <swiper indicator-dots="{{indicatorDots}}"  interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls.data}}" wx:key="{{index}}" >
       <swiper-item bindtap="swiperNavigation" id='{{item.book._id}}'>
         <image src="{{item.img}}" class="slide-image" />
+        <view class='imagedetail'>{{item.title}}</view>
       </swiper-item>
     </block>
   </swiper>
   <!-- 书本分类总开始 -->
-  <view wx:for="{{bookContent}}" wx:for-item="itemName">
+  <view wx:for="{{bookContent}}" wx:key="{{index}}"  wx:for-item="itemName">
     <!-- 书本分类开始 -->
     <view class='contentName'>
       {{itemName.title}}
@@ -19,7 +20,7 @@
     </view>
     <!-- 书本分类结束 -->
     <!-- 每个书本分类子内容开始 -->
-    <view wx:for="{{itemName.books}}" id='{{item.title}}' class='itemBook'>
+    <view wx:for="{{itemName.books}}"wx:key="{{index}}" id='{{item.title}}' class='itemBook'>
      <view class='itemBook' bindtap='swiperNavigation' id='{{item._id}}'>
       <!-- 每本书图片 -->
       <image src="{{item.img}}" class='bookImage'></image>

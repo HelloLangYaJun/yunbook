@@ -21,7 +21,7 @@
     <!-- 头部右边介绍结束 -->
   </view>
   <view class='btn'>
-    <button class='' bindtap='enshrine' disabled="{{isEnshrine}}" >{{isEnshrine?"已收藏":"未收藏"}}</button>
+    <button class='' bindtap='enshrine'  >{{isEnshrine?"取消收藏":"收藏本书"}}</button>
     <button open-type="share">分享好友</button>
   </view>
   <!-- 头部分开始 -->

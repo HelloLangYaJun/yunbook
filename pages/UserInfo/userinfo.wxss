@@ -1,54 +1,122 @@
 /* pages/UserInfo/userinfo.wxss */
-.userinfo{
+
+.userinfo {
   background-color: #1f8ffe;
   width: 100%;
   height: 300rpx;
 }
-.top{
-  height:158rpx; 
+
+.top {
+  height: 158rpx;
   display: flex;
   box-shadow: 0 0 0 0.5px rgba(173, 183, 185, 0.3);
 }
+
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin:0 30rpx;
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 30rpx;
   border-radius: 50%;
 }
-.userinfo-nickname{
+
+.userinfo-nickname {
   display: block;
-   width: 550rpx;
+  width: 550rpx;
   height: 80rpx;
   font-size: 16px;
-   margin-left: 20rpx;
-   color: #fff;
+  margin-left: 20rpx;
+  color: #fff;
 }
-.jieshao{
+
+.jieshao {
   font-size: 14px;
   color: #fff;
 }
-.bottom{
+
+.bottom {
   display: flex;
   color: #fff;
-  justify-content: space-between
+  justify-content: space-between;
 }
-.bottom view{
+
+.bottom view {
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
 }
-.Indeximage{
+
+.Indeximage {
   margin-top: 100rpx;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-.login{
-    width: 128rpx;
-  height: 128rpx;
-  margin:0 30rpx;
+
+
+/* -------------------动画-------------------- */
+/* Animation Seven */
+.animate text:nth-of-type(1) {
+  animation-delay: 1.2s;
+}
+.animate text:nth-of-type(2) {
+  animation-delay: 1.4s;
+}
+
+.animate text:nth-of-type(3) {
+  animation-delay: 1.6s;
+}
+
+.animate text:nth-of-type(4) {
+  animation-delay: 1.8s;
+}
+
+.animate text:nth-of-type(5) {
+  animation-delay: 2s;
+}
+
+.animate text:nth-of-type(6) {
+  animation-delay: 2.2s;
+}
+.animate text {
+  display: inline-block;
+  opacity: 0;
+  transform: translate(0, 0) scale(.7);
+  animation: leftRight 1.2s forwards;
+  animation-iteration-count: infinite
+}
+@keyframes leftRight {
+  40% {
+    transform: translate(0, 0) scale(.7);
+    opacity: 1;
+  }
+  60% {
+     opacity: 1;
+    color: #1f8ffe;
+  }
+  80% {
+    transform: translate(0) scale(1.5);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.Indeximage text {
+  color: #1f8ffe;   
+}
+
+
+
+/* -------------------动画-------------------- */
+.login {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 0 30rpx;
   font-size: 12px;
   border-radius: 50%;
 }
