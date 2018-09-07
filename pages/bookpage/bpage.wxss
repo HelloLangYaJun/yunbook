@@ -71,7 +71,7 @@ to {left:0rpx;}
 
 .item{
   display: block;
-  font-size: 14px;
+  font-size: 28rpx;
   line-height: 70rpx;
   height: 50rpx;
   padding-bottom: 20rpx;

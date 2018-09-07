@@ -100,6 +100,11 @@ Page({
             isDone: true,
           })
         } else {
+          res.data.forEach((item) => {
+            item.books.forEach((item2) => {
+              item2.updateTime = transformtime(item2.updateTime)
+            })
+          })
           this.setData({
             bookContent: newbookContent,
           })

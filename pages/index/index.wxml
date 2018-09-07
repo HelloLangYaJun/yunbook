@@ -3,7 +3,7 @@
   <image src='../../static/svg/loading.svg'></image>
 </view>
 <view class="container" wx:if='{{!isLoading}}'>
-  <swiper indicator-dots="{{indicatorDots}}"  interval="{{interval}}" duration="{{duration}}">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay='{{autoplay}}' interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls.data}}" wx:key="{{index}}" >
       <swiper-item bindtap="swiperNavigation" id='{{item.book._id}}'>
         <image src="{{item.img}}" class="slide-image" />

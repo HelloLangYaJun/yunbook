@@ -1,7 +1,7 @@
 <view class='userinfo'>
   <view class='top'>
     <image bindtap="bindViewTap" wx:if="{{hasUserInfo && canIUse}}"  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-    <button class='login' wx:if="{{!hasUserInfo && canIUse}}"bindgetuserinfo="getUserInfo" open-type="getUserInfo">点击登陆</button>
+    <button class='login' wx:if="{{!hasUserInfo && canIUse}}" bindgetuserinfo="getUserInfo" open-type="getUserInfo">登陆</button>
     <view>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       <text class='jieshao' wx:if="{{hasUserInfo && canIUse}}">这家伙很懒，什么也没有留下</text>

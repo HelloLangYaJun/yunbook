@@ -20,6 +20,9 @@ Page({
         if(res.data.books.length==0){
         }
         else{
+          res.data.books.forEach(item=>{
+            item.updateTime = transformtime(item.updateTime)
+          })
           let newbooks = [...this.data.books, ...res.data.books]
           this.setData({
             books: newbooks,

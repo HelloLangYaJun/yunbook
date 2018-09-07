@@ -32,7 +32,7 @@
 .itemBook-r {
   width: 450rpx;
   margin-left: 10rpx;
-  font-size: 12px;
+  font-size: 24rpx;
   display: flex;
   color: #555;
   flex-direction: column;
@@ -43,7 +43,7 @@
 
 .bookName {
   color: black;
-  font-size: 14px;
+  font-size: 28rpx;
   font-weight: 500;
 }
 
@@ -70,9 +70,11 @@ progress {
 .btn button {
   width: 194rpx;
   height: 60rpx;
-  font-size: 12px;
+  font-size: 24rpx;
+  line-height: 60rpx;
 }
 .lastSaved{
   display: flex;
+  font-size: 24rpx;
   justify-content: space-between
 }

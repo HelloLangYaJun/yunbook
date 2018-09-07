@@ -23,13 +23,13 @@
   display: block;
   width: 550rpx;
   height: 80rpx;
-  font-size: 16px;
+  font-size: 32rpx;
   margin-left: 20rpx;
   color: #fff;
 }
 
 .jieshao {
-  font-size: 14px;
+  font-size: 28rpx;
   color: #fff;
 }
 
@@ -114,9 +114,11 @@
 
 /* -------------------动画-------------------- */
 .login {
+  text-align: center;
   width: 120rpx;
   height: 120rpx;
+  line-height: 120rpx;
   margin: 0 30rpx;
-  font-size: 12px;
+  font-size: 24rpx;
   border-radius: 50%;
 }
