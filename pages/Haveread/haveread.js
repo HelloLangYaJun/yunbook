@@ -5,13 +5,14 @@ import {
 Page({
   data: {
     books: [],
-
+    isLoading:false,
   },
   onLoad: function(options){
     this.getReadInfo()
   },
   getReadInfo() {
     fetch.get(`/readList`).then((res) => {
+      console.log(res)
       res.data.forEach(item => {
         item.updatedTime = transformtime(item.updatedTime)
         item.bai = Math.floor((item.title.index + 1) / (item.title.total + 1) * 100)

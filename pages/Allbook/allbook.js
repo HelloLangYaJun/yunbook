@@ -33,6 +33,14 @@ Page({
        
     })
   },
+  swiperNavigation(event){
+    wx.navigateTo({
+      url: `/pages/Details/details?id=${event.currentTarget.id}`,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   onReachBottom: function () {
   
   },

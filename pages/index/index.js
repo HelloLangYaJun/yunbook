@@ -44,6 +44,7 @@ Page({
           })
         })
         this.setData({
+          isLoading: false,
           bookContent: res.data,
           idDone: false,
         })
@@ -115,7 +116,6 @@ Page({
 
   // ---------更多图书查看-----------
   more(event){
-    console.log(event)
     wx.navigateTo({
       url: `/pages/Allbook/allbook?id=${event.currentTarget.id}&postId=${event.currentTarget.dataset.postId}`,
       success: function(res) {},

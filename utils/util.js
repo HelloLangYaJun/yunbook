@@ -1,8 +1,6 @@
 const baseUrl='https://m.yaojunrong.com'
 const fetch={
   get(url, method = "GET", data = "", header = { 'content-type': 'application/json'}){
-    console.log(method)
-    console.log(baseUrl + url)
     return new Promise((resolvd,reject)=>{
       let token = wx.getStorageSync('token') 
       if (token) {
@@ -11,11 +9,11 @@ const fetch={
       wx.request({
         url: baseUrl + url,
         method,
-        data,
+        data, 
         header,
         success(res) {
-          if (res.header['Token']) {
-            wx.setStorageSync('token', res.header['Token'])
+          if (res.header.Token || res.header.token) {
+            wx.setStorageSync("token", res.header.Token || res.header.token)
           }
           resolvd(res.data)
         },
@@ -26,6 +24,8 @@ const fetch={
     })
   }
 }
+
+// -----------------------------
 const transformtime=function(t){
   var date = new Date(t);
   var updatetime = date.getTime();

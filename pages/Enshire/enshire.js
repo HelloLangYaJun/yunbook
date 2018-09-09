@@ -31,6 +31,9 @@ Page({
       complete: function (res) { },
     })
   },
+  onShow(){
+    this.getEnshrine()
+  },
   onShareAppMessage: function () {
   
   }

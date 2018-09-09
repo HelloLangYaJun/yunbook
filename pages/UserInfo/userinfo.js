@@ -1,6 +1,5 @@
 
 const app = getApp()
-
 import {
   fetch
 } from '../../utils/util.js'
@@ -69,6 +68,9 @@ Page({
         num:res.data.length
       })
     })
+  },
+  onShow(){
+    this.getEnshrine()
   },
   onShareAppMessage: function() {
 

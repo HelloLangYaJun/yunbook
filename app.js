@@ -17,8 +17,7 @@ App({
               secret,
             },
             success: function (res) {
-              console.log(res)
-              wx.setStorageSync('token', res.header.Token )
+              wx.setStorageSync('token', res.header.Token || res.header.token )
             }
           })
         } else {

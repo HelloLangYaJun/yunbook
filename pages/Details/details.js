@@ -37,7 +37,6 @@ Page({
   },
   getEnshrine() {
     fetch.get(`/collection?pn=1&size=10`).then((res) => {
-      console.log(res)
       res.data.forEach(item => {
         if (item.book._id == this.data.queryid) {
           this.setData({
